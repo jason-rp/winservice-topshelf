@@ -13,10 +13,20 @@ namespace FileWatcherServiceWithTopShelf
         {
             HostFactory.Run(serviceConfig =>
             {
+                serviceConfig.UseNLog();
+
                 serviceConfig.Service<ConverterService>(serviceInstance => {
                     serviceInstance.ConstructUsing(() => new ConverterService());
                     serviceInstance.WhenStarted(execute => execute.Start());
                     serviceInstance.WhenStopped(execute => execute.Stop());
+
+                    //using sc.exe to pass command 128-255
+                    serviceInstance.WhenCustomCommandReceived((execute, hostControl, commandNumber) => execute.CustomCommand(commandNumber));
+                });
+
+                serviceConfig.EnableServiceRecovery(recoveryOption =>
+                {
+                    recoveryOption.RestartService(1);
                 });
 
                 serviceConfig.SetServiceName("FileWatcherService");

@@ -6,3 +6,9 @@
 /FileWatcherServiceWithTopShelf/bin/Debug
 /FileWatcherServiceWithTopShelf/obj/Debug
 /packages/Topshelf.4.0.4
+/FileWatcherServiceWithTopShelf/.vs/FileWatcherServiceWithTopShelf/v15
+/FileWatcherServiceWithTopShelf/packages/Topshelf.4.0.4/lib/net452
+/FileWatcherServiceWithTopShelf/packages/Topshelf.4.0.4/Topshelf.4.0.4.nupkg
+/packages/NLog.4.3.10
+/packages/Topshelf.NLog.4.0.4/lib/net452
+/packages/Topshelf.NLog.4.0.4/Topshelf.NLog.4.0.4.nupkg

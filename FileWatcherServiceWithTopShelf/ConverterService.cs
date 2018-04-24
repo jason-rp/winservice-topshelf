@@ -4,15 +4,17 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Topshelf.Logging;
 
 namespace FileWatcherServiceWithTopShelf
 {
     public class ConverterService
     {
         private FileSystemWatcher _watcher;
-
+        private static readonly LogWriter _logWriter = HostLogger.Get<ConverterService>();
         public bool Start()
         {
+            _logWriter.InfoFormat("Start");
             _watcher = new FileSystemWatcher(@"C:\temp\a", "*_in.txt");
             _watcher.Created += FileCreated;
 
@@ -21,6 +23,12 @@ namespace FileWatcherServiceWithTopShelf
 
             return true;
         }
+
+        public void CustomCommand(int commandNumber)
+        {
+            _logWriter.InfoFormat("get command: " + commandNumber);
+        }
+
 
         private void FileCreated(object sender, FileSystemEventArgs e)
         {
