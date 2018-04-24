@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs/FileWatcherServiceWithTopShelf/v15
+/FileWatcherServiceWithTopShelf/bin/Debug
+/FileWatcherServiceWithTopShelf/obj/Debug
+/packages/Topshelf.4.0.4
